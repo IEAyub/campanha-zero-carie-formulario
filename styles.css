@@ -103,9 +103,6 @@ h1 {
   font-size: clamp(10px, 5.4cqw, 26px);
 }
 
-.req { color: var(--red); margin-left: 2px; }
-.req::before { content: "\2060"; } /* junta o "*" à palavra anterior, evita ele ficar sozinho numa linha */
-
 .subtitle {
   font-size: 15px;
   color: #555;
