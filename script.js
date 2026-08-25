@@ -142,7 +142,7 @@ function buildWhatsappLink() {
     "Tenho interesse em agendar uma avaliação.",
   ].join("\n");
   document.getElementById("whatsappBtn").href =
-    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+    `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(msg)}`;
 }
 
 showStep(0);
