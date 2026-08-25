@@ -75,7 +75,7 @@ function goNext() {
   showStep(next);
   trackProgress(next, next === TOTAL_STEPS);
   if (next === 6) {
-    setTimeout(() => goNext(), 1200); // simula processamento
+    setTimeout(() => goNext(), 4000); // simula processamento
   }
   if (next === 7) {
     buildWhatsappLink();
