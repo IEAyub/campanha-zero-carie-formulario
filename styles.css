@@ -104,6 +104,7 @@ h1 {
 }
 
 .req { color: var(--red); margin-left: 2px; }
+.req::before { content: "\2060"; } /* junta o "*" à palavra anterior, evita ele ficar sozinho numa linha */
 
 .subtitle {
   font-size: 15px;
