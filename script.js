@@ -15,8 +15,9 @@ const STEP_NAMES = {
   3: "Idade da criança",
   4: "Dor/desconforto",
   5: "Motivo da consulta",
-  6: "Processando",
-  7: "Concluído",
+  6: "Contato (WhatsApp)",
+  7: "Processando",
+  8: "Concluído",
 };
 
 function trackProgress(step, completed) {
@@ -31,6 +32,7 @@ function trackProgress(step, completed) {
     idade: answers.idade,
     dor: answers.dor,
     motivo: answers.motivo,
+    contato: document.getElementById("contatoWhatsapp").value.trim(),
     origem: "instagram",
   };
   fetch(TRACKING_URL, {
@@ -74,10 +76,10 @@ function goNext() {
   const next = currentStep + 1;
   showStep(next);
   trackProgress(next, next === TOTAL_STEPS);
-  if (next === 6) {
+  if (next === 7) {
     setTimeout(() => goNext(), 4000); // simula processamento
   }
-  if (next === 7) {
+  if (next === 8) {
     buildWhatsappLink();
   }
 }
@@ -99,6 +101,10 @@ function validateStep(step) {
   if (step === 3) return !!answers.idade;
   if (step === 4) return !!answers.dor;
   if (step === 5) return !!answers.motivo;
+  if (step === 6) {
+    const v = document.getElementById("contatoWhatsapp").value.trim();
+    return v.length > 0;
+  }
   return true;
 }
 
@@ -131,6 +137,7 @@ document.querySelectorAll(".options").forEach(group => {
 function buildWhatsappLink() {
   const nomeResponsavel = document.getElementById("nomeResponsavel").value.trim();
   const nomeCrianca = document.getElementById("nomeCrianca").value.trim();
+  const contato = document.getElementById("contatoWhatsapp").value.trim();
   const msg = [
     "Olá, vim pelo instagram.",
     "",
@@ -138,6 +145,7 @@ function buildWhatsappLink() {
     `Criança: ${nomeCrianca} - ${answers.idade}`,
     `Sentindo dor ou desconforto: ${answers.dor}`,
     `Atendimento: ${answers.motivo}`,
+    `Contato: ${contato}`,
     "",
     "Tenho interesse em agendar uma avaliação.",
   ].join("\n");

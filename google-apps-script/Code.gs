@@ -42,6 +42,7 @@ function doPost(e) {
     data.dor || "",
     data.motivo || "",
     data.origem || "",
+    data.contato || "",
   ];
 
   if (rowIndex === -1) {
@@ -71,6 +72,7 @@ function getOrCreateSheet() {
       "Dor/desconforto",
       "Motivo",
       "Origem",
+      "Contato (WhatsApp)",
     ]);
     sheet.setFrozenRows(1);
   }
