@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zero Cárie® - Formulário</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="card">
+  <img src="logo-zero-carie.jpg" alt="Zero Cárie®" class="logo">
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+
+  <!-- Etapa 0: Boas-vindas -->
+  <section class="screen active" data-step="0">
+    <h1 class="h1-nowrap">Olá! Seja bem-vindo(a) ao Zero Cárie<sup>®</sup>.</h1>
+    <p class="subtitle">Para conseguirmos te atender melhor, vou fazer algumas perguntinhas rápidas.<br><strong>Leva menos de 1 minuto.</strong></p>
+    <button class="btn-primary" data-action="next">Responder</button>
+  </section>
+
+  <!-- Etapa 1: Nome do responsável -->
+  <section class="screen" data-step="1">
+    <button class="btn-back" data-action="back" type="button" aria-label="Voltar">← Voltar</button>
+    <h1>Qual o nome do responsável?<span class="req">*</span></h1>
+    <input type="text" id="nomeResponsavel" class="text-input" placeholder="Ex: Maria" autocomplete="off">
+    <button class="btn-primary" data-action="next">Continuar</button>
+    <p class="hint">Ou pressione enter ↵</p>
+  </section>
+
+  <!-- Etapa 2: Nome da criança -->
+  <section class="screen" data-step="2">
+    <button class="btn-back" data-action="back" type="button" aria-label="Voltar">← Voltar</button>
+    <h1>Qual o nome da criança?<span class="req">*</span></h1>
+    <input type="text" id="nomeCrianca" class="text-input" placeholder="Ex: João" autocomplete="off">
+    <button class="btn-primary" data-action="next">Continuar</button>
+    <p class="hint">Ou pressione enter ↵</p>
+  </section>
+
+  <!-- Etapa 3: Idade da criança -->
+  <section class="screen" data-step="3">
+    <button class="btn-back" data-action="back" type="button" aria-label="Voltar">← Voltar</button>
+    <h1>Qual a idade da criança?<span class="req">*</span></h1>
+    <div class="options" data-field="idade">
+      <button class="option" data-value="0 a 2 anos"><span class="letter">A</span>0 a 2 anos</button>
+      <button class="option" data-value="3 a 5 anos"><span class="letter">B</span>3 a 5 anos</button>
+      <button class="option" data-value="6 a 12 anos"><span class="letter">C</span>6 a 12 anos</button>
+    </div>
+  </section>
+
+  <!-- Etapa 4: Dor ou desconforto -->
+  <section class="screen" data-step="4">
+    <button class="btn-back" data-action="back" type="button" aria-label="Voltar">← Voltar</button>
+    <h1>Está sentindo dor ou desconforto?<span class="req">*</span></h1>
+    <div class="options" data-field="dor">
+      <button class="option" data-value="Sim, pouco."><span class="letter">A</span>Sim, pouco.</button>
+      <button class="option" data-value="Sim, muito."><span class="letter">B</span>Sim, muito.</button>
+      <button class="option" data-value="Teve traume/quebrou um dente"><span class="letter">C</span>Teve traume/quebrou um dente</button>
+      <button class="option" data-value="Não sente dor."><span class="letter">D</span>Não sente dor.</button>
+    </div>
+  </section>
+
+  <!-- Etapa 5: Motivo da procura -->
+  <section class="screen" data-step="5">
+    <button class="btn-back" data-action="back" type="button" aria-label="Voltar">← Voltar</button>
+    <h1>O que fez você procurar atendimento?<span class="req">*</span></h1>
+    <div class="options" data-field="motivo">
+      <button class="option" data-value="1º consulta odontológica"><span class="letter">A</span>1º consulta odontológica</button>
+      <button class="option" data-value="Acompanhamento preventivo"><span class="letter">B</span>Acompanhamento preventivo</button>
+      <button class="option" data-value="Limpeza / Profiláxia"><span class="letter">C</span>Limpeza / Profiláxia</button>
+      <button class="option" data-value="Percebi cárie ou mancha"><span class="letter">D</span>Percebi cárie ou mancha</button>
+      <button class="option" data-value="Está sentindo dor ou incômodo"><span class="letter">E</span>Está sentindo dor ou incômodo</button>
+      <button class="option" data-value="Outro"><span class="letter">F</span>Outro</button>
+    </div>
+  </section>
+
+  <!-- Etapa 6: Processando -->
+  <section class="screen" data-step="6">
+    <h1>Processando...</h1>
+    <p class="subtitle">Um momento</p>
+    <div class="spinner"></div>
+  </section>
+
+  <!-- Etapa 7: Final -->
+  <section class="screen" data-step="7">
+    <h1>Tudo Certo!</h1>
+    <p class="subtitle">Clique abaixo para falar com uma de nossas atendentes pelo WhatsApp.</p>
+    <a href="#" id="whatsappBtn" class="btn-primary btn-blue" target="_blank" rel="noopener">Equipe Zero Cárie®</a>
+  </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
