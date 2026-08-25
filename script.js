@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = "5567992935751";
+const WHATSAPP_NUMBER = "5567992247988";
 
 // Cole aqui a URL do Google Apps Script (termina em /exec) depois de implantar
 // o arquivo google-apps-script/Code.gs. Enquanto estiver vazio, o rastreamento fica desligado.
