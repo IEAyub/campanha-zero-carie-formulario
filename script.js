@@ -1,5 +1,15 @@
 const WHATSAPP_NUMBER = "5567992247988";
 
+// Versão de cada opção de "motivo" adaptada pra encaixar na frase
+// "...gostaria de ter mais informações sobre {X}." da mensagem final.
+const MOTIVO_TO_PHRASE = {
+  "Quero agendar uma avaliação.": "uma avaliação",
+  "Percebi cárie ou mancha": "uma cárie ou mancha que percebi",
+  "Atendimento urgente (dor)": "atendimento urgente por dor",
+  "Consulta de rotina / prevenção": "uma consulta de rotina / prevenção",
+  "Outro": "outro assunto",
+};
+
 // Cole aqui a URL do Google Apps Script (termina em /exec) depois de implantar
 // o arquivo google-apps-script/Code.gs. Enquanto estiver vazio, o rastreamento fica desligado.
 const TRACKING_URL = "https://script.google.com/macros/s/AKfycbz6NZ54C0RtPq0XQy6H8qwtUcNVEMdo6iezWvWEf4nnwvEcw8obYdUnrHJg2lrQ-8on/exec";
@@ -143,19 +153,8 @@ document.querySelectorAll(".options").forEach(group => {
 
 function buildWhatsappLink() {
   const nomeResponsavel = document.getElementById("nomeResponsavel").value.trim();
-  const nomeCrianca = document.getElementById("nomeCrianca").value.trim();
-  const contato = document.getElementById("contatoWhatsapp").value.trim();
-  const msg = [
-    "Olá, vim pelo instagram.",
-    "",
-    `Responsável: ${nomeResponsavel}`,
-    `Criança: ${nomeCrianca} - ${answers.idade}`,
-    `Sentindo dor ou desconforto: ${answers.dor}`,
-    `Atendimento: ${answers.motivo}`,
-    `Contato: ${contato}`,
-    "",
-    "Tenho interesse em agendar uma avaliação.",
-  ].join("\n");
+  const motivoFrase = MOTIVO_TO_PHRASE[answers.motivo] || answers.motivo;
+  const msg = `Olá, vim pelo instagram. Meu nome é ${nomeResponsavel} e gostaria de ter mais informações sobre ${motivoFrase}.`;
   document.getElementById("whatsappBtn").href =
     `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(msg)}`;
 }
