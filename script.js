@@ -71,16 +71,23 @@ function showStep(step) {
   }
 }
 
+function trackFbEvent(name) {
+  if (typeof fbq === "function") fbq("track", name);
+}
+
 function goNext() {
   if (!validateStep(currentStep)) return;
+  const prevStep = currentStep;
   const next = currentStep + 1;
   showStep(next);
   trackProgress(next, next === TOTAL_STEPS);
+  if (prevStep === 0) trackFbEvent("Lead");
   if (next === 7) {
     setTimeout(() => goNext(), 4000); // simula processamento
   }
   if (next === 8) {
     buildWhatsappLink();
+    trackFbEvent("CompleteRegistration");
   }
 }
 
