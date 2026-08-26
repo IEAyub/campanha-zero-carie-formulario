@@ -57,8 +57,17 @@ src="https://www.facebook.com/tr?id=1377599237775371&ev=PageView&noscript=1"
     <p class="hint">Ou pressione enter ↵</p>
   </section>
 
-  <!-- Etapa 2: Nome da criança -->
+  <!-- Etapa 2: Contato -->
   <section class="screen" data-step="2">
+    <button class="btn-back" data-action="back" type="button" aria-label="Voltar">← Voltar</button>
+    <h1>Como podemos entrar em contato com você?</h1>
+    <input type="tel" id="contatoWhatsapp" class="text-input" placeholder="Ex: (67) 9 9999-9999" autocomplete="off" inputmode="tel">
+    <button class="btn-primary" data-action="next">Continuar</button>
+    <p class="hint">Ou pressione enter ↵</p>
+  </section>
+
+  <!-- Etapa 3: Nome da criança -->
+  <section class="screen" data-step="3">
     <button class="btn-back" data-action="back" type="button" aria-label="Voltar">← Voltar</button>
     <h1>Como a criança se chama? 😊</h1>
     <input type="text" id="nomeCrianca" class="text-input" placeholder="Ex: João" autocomplete="off">
@@ -66,8 +75,8 @@ src="https://www.facebook.com/tr?id=1377599237775371&ev=PageView&noscript=1"
     <p class="hint">Ou pressione enter ↵</p>
   </section>
 
-  <!-- Etapa 3: Idade da criança -->
-  <section class="screen" data-step="3">
+  <!-- Etapa 4: Idade da criança -->
+  <section class="screen" data-step="4">
     <button class="btn-back" data-action="back" type="button" aria-label="Voltar">← Voltar</button>
     <h1>E quantos anos ele(a) tem?</h1>
     <div class="options" data-field="idade">
@@ -78,38 +87,29 @@ src="https://www.facebook.com/tr?id=1377599237775371&ev=PageView&noscript=1"
     </div>
   </section>
 
-  <!-- Etapa 4: Dor ou desconforto -->
-  <section class="screen" data-step="4">
-    <button class="btn-back" data-action="back" type="button" aria-label="Voltar">← Voltar</button>
-    <h1>Está sentindo dor ou desconforto?</h1>
-    <div class="options" data-field="dor">
-      <button class="option" data-value="Sim, pouco."><span class="letter">A</span>Sim, pouco.</button>
-      <button class="option" data-value="Sim, muito."><span class="letter">B</span>Sim, muito.</button>
-      <button class="option" data-value="Teve traume/quebrou um dente"><span class="letter">C</span>Teve traume/quebrou um dente</button>
-      <button class="option" data-value="Não sente dor."><span class="letter">D</span>Não sente dor.</button>
-    </div>
-  </section>
-
-  <!-- Etapa 5: Motivo da procura -->
+  <!-- Etapa 5: Dor ou desconforto -->
   <section class="screen" data-step="5">
     <button class="btn-back" data-action="back" type="button" aria-label="Voltar">← Voltar</button>
-    <h1>O que você está buscando pra ele(a)?</h1>
-    <div class="options" data-field="motivo">
-      <button class="option" data-value="Quero agendar uma avaliação."><span class="letter">A</span>Quero agendar uma avaliação.</button>
-      <button class="option" data-value="Percebi cárie ou mancha"><span class="letter">B</span>Percebi cárie ou mancha</button>
-      <button class="option" data-value="Atendimento urgente (dor)"><span class="letter">C</span>Atendimento urgente (dor)</button>
-      <button class="option" data-value="Consulta de rotina / prevenção"><span class="letter">D</span>Consulta de rotina / prevenção</button>
-      <button class="option" data-value="Outro"><span class="letter">E</span>Outro</button>
+    <h1>Como está o dente dele(a) hoje?</h1>
+    <div class="options" data-field="dor">
+      <button class="option" data-value="Sem dor, só quero prevenir"><span class="letter">A</span>Sem dor, só quero prevenir</button>
+      <button class="option" data-value="Um pouco de dor, mas ainda leva numa boa"><span class="letter">B</span>Um pouco de dor, mas ainda leva numa boa</button>
+      <button class="option" data-value="Dói bastante — já está atrapalhando o sono ou a comida"><span class="letter">C</span>Dói bastante — já está atrapalhando o sono ou a comida</button>
+      <button class="option" data-value="Machucou / quebrou um dente"><span class="letter">D</span>Machucou / quebrou um dente</button>
     </div>
   </section>
 
-  <!-- Etapa 6: Contato -->
+  <!-- Etapa 6: Necessidade / motivação -->
   <section class="screen" data-step="6">
     <button class="btn-back" data-action="back" type="button" aria-label="Voltar">← Voltar</button>
-    <h1>Como podemos entrar em contato com você?</h1>
-    <input type="tel" id="contatoWhatsapp" class="text-input" placeholder="Ex: (67) 9 9999-9999" autocomplete="off" inputmode="tel">
-    <button class="btn-primary" data-action="next">Continuar</button>
-    <p class="hint">Ou pressione enter ↵</p>
+    <h1>O que mudaria pra vocês se resolvermos isso logo?</h1>
+    <div class="options" data-field="motivo">
+      <button class="option" data-value="Ele(a) voltar a dormir e comer em paz"><span class="letter">A</span>Ele(a) voltar a dormir e comer em paz</button>
+      <button class="option" data-value="Eu ficar tranquila(o) que está tudo bem"><span class="letter">B</span>Eu ficar tranquila(o) que está tudo bem</button>
+      <button class="option" data-value="Prevenir que vire um problema maior"><span class="letter">C</span>Prevenir que vire um problema maior</button>
+      <button class="option" data-value="Já sei o que preciso, só quero agendar"><span class="letter">D</span>Já sei o que preciso, só quero agendar</button>
+      <button class="option" data-value="Outro"><span class="letter">E</span>Outro</button>
+    </div>
   </section>
 
   <!-- Etapa 7: Processando -->

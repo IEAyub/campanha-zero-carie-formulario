@@ -1,13 +1,13 @@
 const WHATSAPP_NUMBER = "5567992247988";
 
-// Versão de cada opção de "motivo" adaptada pra encaixar na frase
-// "...gostaria de ter mais informações sobre {X}." da mensagem final.
+// Versão de cada opção de "o que mudaria pra vocês" adaptada como
+// frase de fechamento da mensagem final do WhatsApp.
 const MOTIVO_TO_PHRASE = {
-  "Quero agendar uma avaliação.": "uma avaliação",
-  "Percebi cárie ou mancha": "uma cárie ou mancha que percebi",
-  "Atendimento urgente (dor)": "atendimento urgente por dor",
-  "Consulta de rotina / prevenção": "uma consulta de rotina / prevenção",
-  "Outro": "outro assunto",
+  "Ele(a) voltar a dormir e comer em paz": "Gostaria que ele(a) voltasse a dormir e comer em paz.",
+  "Eu ficar tranquila(o) que está tudo bem": "Gostaria de ficar tranquila(o) que está tudo bem com ele(a).",
+  "Prevenir que vire um problema maior": "Quero prevenir que vire um problema maior.",
+  "Já sei o que preciso, só quero agendar": "Já sei o que preciso, só quero agendar uma avaliação.",
+  "Outro": "Gostaria de mais informações.",
 };
 
 // Cole aqui a URL do Google Apps Script (termina em /exec) depois de implantar
@@ -21,11 +21,11 @@ const sessionId = crypto.randomUUID
 const STEP_NAMES = {
   0: "Boas-vindas",
   1: "Nome do responsável",
-  2: "Nome da criança",
-  3: "Idade da criança",
-  4: "Dor/desconforto",
-  5: "Motivo da consulta",
-  6: "Contato (WhatsApp)",
+  2: "Contato (WhatsApp)",
+  3: "Nome da criança",
+  4: "Idade da criança",
+  5: "Dor/desconforto",
+  6: "Motivo da consulta",
   7: "Processando",
   8: "Concluído",
 };
@@ -112,16 +112,16 @@ function validateStep(step) {
     return v.length > 0;
   }
   if (step === 2) {
-    const v = document.getElementById("nomeCrianca").value.trim();
-    return v.length > 0;
-  }
-  if (step === 3) return !!answers.idade;
-  if (step === 4) return !!answers.dor;
-  if (step === 5) return !!answers.motivo;
-  if (step === 6) {
     const v = document.getElementById("contatoWhatsapp").value.trim();
     return v.length > 0;
   }
+  if (step === 3) {
+    const v = document.getElementById("nomeCrianca").value.trim();
+    return v.length > 0;
+  }
+  if (step === 4) return !!answers.idade;
+  if (step === 5) return !!answers.dor;
+  if (step === 6) return !!answers.motivo;
   return true;
 }
 
@@ -154,7 +154,7 @@ document.querySelectorAll(".options").forEach(group => {
 function buildWhatsappLink() {
   const nomeResponsavel = document.getElementById("nomeResponsavel").value.trim();
   const motivoFrase = MOTIVO_TO_PHRASE[answers.motivo] || answers.motivo;
-  const msg = `Olá, vim pelo instagram. Meu nome é ${nomeResponsavel} e gostaria de ter mais informações sobre ${motivoFrase}.`;
+  const msg = `Olá, vim pelo instagram. Meu nome é ${nomeResponsavel}. ${motivoFrase}`;
   document.getElementById("whatsappBtn").href =
     `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(msg)}`;
 }
